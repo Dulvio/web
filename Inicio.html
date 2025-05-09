@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escasez del Agua</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e8f0f8;
+    }
+
+    /* Menú desplegable */
+    .navbar {
+      background-color: #006494;
+      overflow: hidden;
+      padding: 10px 20px;
+    }
+
+    .navbar a, .dropdown .dropbtn {
+      color: white;
+      padding: 14px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      background-color: #005377;
+    }
+
+    .dropdown {
+      display: inline-block;
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Sección de texto interactivo */
+    .contenido {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .contenido button {
+      padding: 10px 20px;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contenido button:hover {
+      background-color: #023e8a;
+    }
+
+    #mensaje {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #023e8a;
+    }
+
+    /* Carrete de imágenes */
+    .carousel {
+      max-width: 800px;
+      margin: 50px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú -->
+  <div class="navbar">
+    <a href="Inicio.html">Inicio</a>
+    <div class="dropdown">
+      
+      <div class="dropdown-content">
+        
+      </div>
+    </div>
+    <a href="Bienvenidos.html">Bienvenido</a>
+        <a href="Pruebas.html">Puebras JS</a>
+        <a href="Quien soy.html">¿Quien soy?</a>
+        <a href="Contacto.html">Contacto</a>
+  </div>
+
+  <!-- Texto Interactivo -->
+  <div class="contenido">
+    <h1>Inicio</h1>
+    <p>En esta página encontraremos información sobre la escasez del agua en Texcoco, ¿Quién soy? Y la infraestructura de una página.</p>
+     <p id="mensaje"></p>
+  </div>
+
+  <!-- Carrete de Imágenes -->
+  <div class="carousel">
+    <div class="slides" id="slides">
+      <img src="C:\Users\tonyg\Desktop\Imagenes\uvm.jpg" alt="uvm.jpg">
+     
+    </div>
+    <button class="prev" onclick="cambiarSlide(-1)">❮</button>
+    <button class="next" onclick="cambiarSlide(1)">❯</button>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function mostrarMensaje() {
+      document.getElementById('mensaje').textContent =
+        ' En esta página encontraremos información sobre la escasez del agua en Texcoco, ¿Quién soy? Y la infraestructura de una página.'
+    }
+
+    // Carrusel de imágenes
+    let index = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+
+    function cambiarSlide(direccion) {
+      index += direccion;
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+  </script>
+
+</body>
+</html>
